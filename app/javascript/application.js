@@ -4,9 +4,11 @@ import "controllers"
 import * as Popper from '@popperjs/core';
 window.Popper = Popper;
 import "bootstrap"
+import "chartkick"
+import "Chart.bundle"
 
 document.addEventListener("turbo:load", function () {
-  // This code is copied from Bootstrap's docs. See link below.
+  
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );

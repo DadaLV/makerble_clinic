@@ -1,0 +1,9 @@
+<h1>Specializations</h1>
+
+<ul>
+  <% @specializations.each do |specialization| %>
+    <li>
+      <%= link_to specialization.name, specialization_path(specialization) %>
+    </li>
+  <% end %>
+</ul>
