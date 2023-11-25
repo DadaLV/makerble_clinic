@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   authenticated :user, ->(user) { user.doctor? } do
     root to: 'doctors#dashboard', as: :doctor_root
   end
+  get 'receptionist/dashboard', to: 'receptionists#dashboard'
+  resources :patients
+  resources :appointments
+  resources :doctors
+  resources :specializations
   root "home#index"
 end

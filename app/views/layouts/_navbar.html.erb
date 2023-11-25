@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <%= link_to "Makerble Clinic", root_path, class: "navbar-brand my-navbar-brand" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,11 +8,11 @@
           <ul class="navbar-nav">
             <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link my-nav-item" %>
+                <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link my-nav-item" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: "nav-link  my-nav-item" %>
+                <%= link_to "Sign in", new_user_session_path, class: "nav-link  my-nav-item" %>
               </li>
             <% end %>
           </ul>
