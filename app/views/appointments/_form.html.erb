@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4 text-center">New Appointment</h1>
+
+      <%= form_with(model: appointment, local: true, html: { class: 'form-horizontal' }) do |form| %>
+        <% if appointment.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h4><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h4>
+            <ul>
+              <% appointment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3">
+          <%= form.label :patient_id, class: 'form-label' %>
+          <%= form.collection_select :patient_id, User.where(role: 'patient'), :id, :full_name, { include_blank: true }, { class: 'form-select' } %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :doctor_id, class: 'form-label' %>
+          <%= form.collection_select :doctor_id, User.where(role: 'doctor'), :id, :full_name, { include_blank: true }, { class: 'form-select' } %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :date, class: 'form-label' %>
+          <%= form.datetime_select :date, {}, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :notes, class: 'form-label' %>
+          <%= form.text_area :notes, class: 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+      <%= link_to 'Back to Appointments', appointments_path, class: 'btn btn-secondary mt-3' %>
+    </div>
+  </div>
+</div>

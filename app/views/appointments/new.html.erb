@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4 text-center">New Appointment</h1>
+
+      <%= render 'form', appointment: @appointment %>
+
+      <%= link_to 'Back to Appointments', appointments_path, class: 'btn btn-secondary mt-3' %>
+    </div>
+  </div>
+</div>
